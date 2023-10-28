@@ -19,7 +19,7 @@ div {
     font-size: 30px;
 }
 
-#user-page-content {
+#admin-page-content {
     font-size: 20px;
     margin-top: 50px;
     width: 100%;
@@ -36,7 +36,7 @@ div {
     height: 80vh;
 }
 
-#location-usage > p, ul {
+#location > p, ul {
     margin: 25px;
     /* border: 1px solid black; */
 }
