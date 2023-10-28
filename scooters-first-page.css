@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: Andika;
 }
 
 div {
@@ -31,6 +32,7 @@ p {
     justify-content: space-between;
 }
  #accounts > a {
+    font-size: 20px;
     border: 2px solid black;
     width: 30%;
     text-decoration: none;
