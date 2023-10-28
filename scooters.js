@@ -36,3 +36,29 @@ function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226
 }
 
 generate_map();
+
+const selected_scooter = document.getElementById('selected');
+const scooter_status = document.getElementById('scooter-status');
+
+selected_scooter.onclick = function(ev) {
+    ev.preventDefault();
+
+    if (scooter_status.style.display === "none") {
+        scooter_status.style.display = "block";
+    } else {
+        scooter_status.style.display = "none";
+    }
+}
+
+const requests = document.getElementById('rental-requests');
+const user_spec = document.getElementById('user-specifications');
+
+requests.onclick = function(ev) {
+    ev.preventDefault();
+
+    if (user_spec.style.display === "none") {
+        user_spec.style.display = "block";
+    } else {
+        user_spec.style.display = "none";
+    }
+}

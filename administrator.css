@@ -53,10 +53,16 @@ div {
     /* border: 2px solid black; */
     width: 37%;
     align-items: center;
+    justify-content: center;
 }
 
 #info > a {
+    min-width: 26vw;
     text-decoration: none;
     text-align: center;
     border: 1px solid black;
+}
+
+#scooter-status, #user-specifications {
+    display: none;
 }
