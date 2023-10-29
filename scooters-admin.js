@@ -1,8 +1,8 @@
 const search_map = document.getElementById('map');
 
-/* PE HARTA se pot identifica STATIILE de trotinete, trotinete disponibile in statie, dar si 
-TROTINETE care sunt pozitionate/lasate IN AFARA STATIILOR 
-    DECI - pe harta se vor gasi trotinetele disponibile de selectat */
+/* PE HARTA se pot identifica STATIILE de trotinete, trotinete disponibile in statie, 
+TROTINETE care sunt pozitionate/lasate IN AFARA STATIILOR, situatia fiecarui produs
+ */
 
 function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226788) {
     
@@ -34,6 +34,7 @@ function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226
 
         marker.addListener("click", function(ev) {
             info_obj.open(map_obj, marker);
+            
         });
 
     }

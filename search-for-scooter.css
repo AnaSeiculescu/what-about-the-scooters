@@ -12,22 +12,20 @@ div {
     height: 40px;
     border-bottom: 4px solid black;
     box-shadow: 0 8px 3px #a1a3a3;
-    /* padding: 30px; */
 }
 
 #header > p {
-    margin-left: 15%;
+    margin-left: 2%;
     font-size: 25px;
     font-weight: 600;
 }
 
 #user-page-content {
     font-size: 20px;
-    margin-top: 50px;
+    margin-top: 40px;
     width: 100%;
     display: grid;
-    direction: column;
-    
+    direction: column; 
 }
 
 #map-and-info {
@@ -40,21 +38,26 @@ div {
 
 #location-usage > p, ul {
     margin: 25px;
-    /* border: 1px solid black; */
 }
 
 #map {
     border: 2px solid black;
     margin-left: 2%;
-    width: 57%;
+    width: 95%;
+}
+
+#info-context {
+    display: none;
+    margin-right: 2%;
+    width: 29%;
 }
 
 #info {
     display: grid;
+    gap: 25px;
     margin-right: 2%;
-    /* border: 2px solid black; */
-    width: 37%;
-    align-items: center;
+    width: 100%;
+    align-items:center;
     justify-content: center;
 }
 

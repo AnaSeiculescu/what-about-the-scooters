@@ -12,7 +12,6 @@ div {
     height: 50px;
     border-bottom: 4px solid black;
     box-shadow: 0 8px 3px #a1a3a3;
-    /* padding: 30px; */
 }
 
 #header > p {
@@ -22,7 +21,7 @@ div {
 
 #admin-page-content {
     font-size: 20px;
-    margin-top: 50px;
+    margin-top: 40px;
     width: 100%;
     display: grid;
     direction: column;
@@ -39,20 +38,19 @@ div {
 
 #location > p, ul {
     margin: 25px;
-    /* border: 1px solid black; */
 }
 
 #map {
     border: 2px solid black;
     margin-left: 2%;
-    width: 57%;
+    width: 65%;
 }
 
 #info {
     display: grid;
+    /* gap: 25px; */
     margin-right: 2%;
-    /* border: 2px solid black; */
-    width: 37%;
+    width: 29%;
     align-items: center;
     justify-content: center;
 }
