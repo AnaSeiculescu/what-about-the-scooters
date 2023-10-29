@@ -9,7 +9,9 @@ div {
 }
 
 p {
-    font-size: 30px;
+    font-size: 40px;
+    font-weight: 600;
+    /* color: #ffc800; */
 }
 
 #first-page {
@@ -19,11 +21,15 @@ p {
     min-height: 100vh;
     justify-content: center;
     align-self: center;
+    background-image: url("lonely_scooter5.jpg");
+    background-size: cover;
 }
 
 #header-first-page {
     text-align: center;
     margin: auto;
+    padding-right: 20%;
+    padding-bottom: 10%;
 }
 
 #accounts {
@@ -32,8 +38,9 @@ p {
     justify-content: space-between;
 }
  #accounts > a {
+    background-color: black;
+    color:beige;
     font-size: 20px;
-    border: 2px solid black;
     width: 30%;
     text-decoration: none;
  }

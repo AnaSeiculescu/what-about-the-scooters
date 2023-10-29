@@ -4,7 +4,7 @@ const search_map = document.getElementById('map');
 TROTINETE care sunt pozitionate/lasate IN AFARA STATIILOR 
     DECI - pe harta se vor gasi trotinetele disponibile de selectat */
 
-function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226788, descr_val = 'TImisoara') {
+function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226788, descr_val = 'Timisoara') {
     
     let map_options_obj = {
         zoom: 12,
