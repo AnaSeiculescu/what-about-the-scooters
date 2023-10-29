@@ -4,34 +4,39 @@ const search_map = document.getElementById('map');
 TROTINETE care sunt pozitionate/lasate IN AFARA STATIILOR 
     DECI - pe harta se vor gasi trotinetele disponibile de selectat */
 
-function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226788, descr_val = 'Timisoara') {
+function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226788) {
     
+    let locations = [['Runner', 45.748035, 21.238690], 
+                ['InTime', 45.754090, 21.225549], 
+                ['Walker', 45.761888, 21.226370]];
+
     let map_options_obj = {
-        zoom: 12,
+        zoom: 14,
         center: {lat: lat_val, lng: lng_val},
     }
 
     let map_obj = new google.maps.Map(map_el, map_options_obj);
 
-    let marker_options_obj = {
-        position: map_options_obj.center,
-        map: map_obj,
-    };
+    for (let j = 0; j < locations.length; j++) {
 
-    let marker_obj = new google.maps.Marker(marker_options_obj);
+        let marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[j][1], locations[j][2]),
+            map: map_obj,
+            title: locations[j][0],
+        });
 
-    let info_options_obj = {
+        let info_options_obj = {
+            content: '<h4>' + locations[j][0] + '</h4>',
+        };
 
-        content: '<h4>' + descr_val + '</h4>',
+        let info_obj = new google.maps.InfoWindow(info_options_obj);
+        info_obj.open(map_obj, marker);
 
-    };
+        marker.addListener("click", function(ev) {
+            info_obj.open(map_obj, marker);
+        });
 
-    let info_obj = new google.maps.InfoWindow(info_options_obj);
-    info_obj.open(map_obj, marker_obj);
-
-    marker_obj.addListener("click", function(ev) {
-        info_obj.open(map_obj, marker_obj);
-    });
+    }
 
 }
 
