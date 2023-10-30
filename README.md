@@ -3,7 +3,7 @@
 
 Harta ilustreaza produsele disponibile localizate in statii si in afara statiilor. Selectarea unui produs pe harta va reprezenta detaliile produsului in partea dreapta a hartii.
 Statia poate fi selectata dintr-o lista. In acest caz harta se va mari pe zona statiei cautate, si pe harta vor aparea produsele disponibile in statie. 
-De asemenea, selectarea produsului pe harta va face vizibile detaliile produsului, iar butonul **Return to All Products Map** va reveni la ilustrarea tuturor produselor pe harta.
+De asemenea, selectarea produsului pe harta va face vizibile detaliile produsului, iar butonul * **Return to All Products Map** * va reveni la ilustrarea tuturor produselor pe harta.
 
 
 ## Idei nereprezentate sau incomplete in paginile aplicatiei
