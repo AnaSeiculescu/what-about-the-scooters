@@ -4,11 +4,54 @@ const search_map = document.getElementById('map');
 TROTINETE care sunt pozitionate/lasate IN AFARA STATIILOR 
     DECI - pe harta se vor gasi trotinetele disponibile de selectat */
 
+
+const products = [
+    {
+        id: 0,
+        name: 'Runner',
+        lat: 45.748035,
+        lng: 21.238690,
+        location: 'Aleea studentilor Station',
+        status: 'public', 
+        battery: "43% - charging",
+        km: 'km left at max speed: 7',
+    },
+
+    {
+        id: 1,
+        name: 'InTime',
+        lat: 45.754090,
+        lng: 21.225549,
+        location: 'Piata Victoriei Station',
+        status: 'private', 
+        battery: "80%",
+        km: 'km left at max speed: 12',
+    },
+
+    {
+        id: 2,
+        name: 'Walker',
+        lat: 45.761888,
+        lng: 21.226370,
+        location: 'Calea Alexandru Ioan Cuza 1, Botanic Park',
+        status: 'public', 
+        battery: "55%",
+        km: 'km left at max speed: 8.5',
+    },
+
+    {
+        id: 3,
+        name: 'Bug',
+        lat: 45.774961, 
+        lng: 21.238971,
+        location: 'Petru si Pavel Station',
+        status: 'private', 
+        battery: "25% - charging",
+        km: 'km left at max speed: 4',
+    },
+]
+
 function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226788) {
-    
-    let locations = [['Runner', 45.748035, 21.238690], 
-                ['InTime', 45.754090, 21.225549], 
-                ['Walker', 45.761888, 21.226370]];
 
     let map_options_obj = {
         zoom: 14,
@@ -17,16 +60,16 @@ function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226
 
     let map_obj = new google.maps.Map(map_el, map_options_obj);
 
-    for (let j = 0; j < locations.length; j++) {
+    for (let j = 0; j < products.length; j++) {
 
         let marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[j][1], locations[j][2]),
+            position: new google.maps.LatLng(products[j].lat, products[j].lng),
             map: map_obj,
-            title: locations[j][0],
+            title: products[j].name,
         });
 
         let info_options_obj = {
-            content: '<h4>' + locations[j][0] + '</h4>',
+            content: '<h4>' + products[j].name + '</h4>',
         };
 
         let info_obj = new google.maps.InfoWindow(info_options_obj);
@@ -35,11 +78,15 @@ function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226
         marker.addListener("click", function(ev) {
             info_obj.open(map_obj, marker);
 
-            search_map.style.width = "65%";
-            search_map.style.transition = "width 2s";
-
             let info_text = document.getElementById('info-context');
             let info = document.getElementById('info');
+            let location = document.getElementById('location');
+            let status = document.getElementById('status');
+            let battery = document.getElementById('battery');
+            let km = document.getElementById('km');
+
+            search_map.style.width = "65%";
+            search_map.style.transition = "width 2s";
 
             info_text.style.width = "29%";
             info_text.style.transition = "display 2s";
@@ -47,6 +94,11 @@ function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226
             info.style.transition = "width 2s";
             info.style.display = "grid";
             info.style.transition = "display 2s";
+
+            location.innerText = products[j].location;
+            status.innerText = products[j].status;
+            battery.innerText = products[j].battery;
+            km.innerText = products[j].km;
             
         });
 

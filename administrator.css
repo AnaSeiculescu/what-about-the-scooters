@@ -48,7 +48,6 @@ div {
 
 #info {
     display: grid;
-    /* gap: 25px; */
     margin-right: 2%;
     width: 29%;
     align-items: center;

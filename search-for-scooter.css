@@ -41,7 +41,7 @@ div {
     height: 80vh;
 }
 
-#location-usage > p, ul {
+#product > p, ul {
     margin: 25px;
     color: white;
 }
@@ -63,6 +63,9 @@ div {
     margin-right: 4%;
     margin-left: 4%;
     width: 100%;
+    justify-content: center;
+    align-content: space-between;
+    height: 100%;
 }
 
 #info > p {
@@ -75,4 +78,8 @@ div {
     text-decoration: none;
     text-align: center;
     border: 1px solid white;
+}
+
+#info > #set-route {
+    margin-top: 100px;
 }
