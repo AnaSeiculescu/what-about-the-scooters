@@ -80,21 +80,22 @@ function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226
 
             let info_text = document.getElementById('info-context');
             let info = document.getElementById('info');
+            let name = document.getElementById('name');
             let location = document.getElementById('location');
             let status = document.getElementById('status');
             let battery = document.getElementById('battery');
             let km = document.getElementById('km');
 
-            search_map.style.width = "65%";
+            search_map.style.width = "68%";
             search_map.style.transition = "width 2s";
 
-            info_text.style.width = "29%";
-            info_text.style.transition = "display 2s";
+            info_text.style.width = "25%";
+            info_text.style.transition = "width 2s";
 
             info.style.transition = "width 2s";
             info.style.display = "grid";
-            info.style.transition = "display 2s";
 
+            name.innerText = products[j].name;
             location.innerText = products[j].location;
             status.innerText = products[j].status;
             battery.innerText = products[j].battery;
