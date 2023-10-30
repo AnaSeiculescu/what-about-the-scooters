@@ -1,3 +1,4 @@
+
 const search_map = document.getElementById('map');
 
 /* PE HARTA se pot identifica STATIILE de trotinete, trotinete disponibile in statie, dar si 
@@ -11,7 +12,7 @@ const products = [
         name: 'Runner',
         lat: 45.748035,
         lng: 21.238690,
-        location: 'Aleea studentilor Station',
+        location: 'Aleea Studentilor Station',
         status: 'public', 
         battery: "43% - charging",
         km: 'km left at max speed: 7',
@@ -49,12 +50,20 @@ const products = [
         battery: "25% - charging",
         km: 'km left at max speed: 4',
     },
-]
+];
 
-function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226788) {
+const stations = [
+    ['Aleea Studentilor Station', 45.748035, 21.238690],
+    ['Piata Victoriei Station', 45.754090, 21.225549],
+    ['Petru si Pavel Station', 45.774961, 21.238971]
+];
+
+function generate_map(map_el = search_map, lat_val = 45.755998, lng_val = 21.229103, zoom_nr = 14) {
+
+    
 
     let map_options_obj = {
-        zoom: 14,
+        zoom: zoom_nr,
         center: {lat: lat_val, lng: lng_val},
     }
 
@@ -109,28 +118,110 @@ function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226
 
 generate_map();
 
-const selected_scooter = document.getElementById('selected');
-const scooter_status = document.getElementById('scooter-status');
+/*
+   avem posibilitatea de a selecta o statie dintr-o lista, iar in urma selectiei harta se va mari pentru zona statiei selectate. 
+   in statie selectata putem gasi o alta lista a produselor disponibile in statie. Produsele pot fi selectate pe harta.
 
-selected_scooter.onclick = function(ev) {
-    ev.preventDefault();
+*/
 
-    if (scooter_status.style.display === "none") {
-        scooter_status.style.display = "block";
-    } else {
-        scooter_status.style.display = "none";
+function generate_map_for_station(map_el = search_map, lat_val, lng_val) {
+
+    let map_options_obj = {
+        zoom: 18,
+        center: {lat: lat_val, lng: lng_val},
     }
+
+    let map_obj = new google.maps.Map(map_el, map_options_obj);
+
+    let descr = search_box.value;
+
+    let scootersHere = findTheScootersInStation(descr);
+    console.log(scootersHere);
+
+    for (let j = 0; j < scootersHere.length; j++) {
+        
+        let marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat_val, lng_val),
+            map: map_obj,
+            title: scootersHere[j].name,
+        });
+    
+        let info_options_obj = {
+            content: '<h4>' + scootersHere[j].name + '</h4>',
+        };
+    
+        let info_obj = new google.maps.InfoWindow(info_options_obj);
+        info_obj.open(map_obj, marker);
+    
+        marker.addListener("click", function(ev) {
+            info_obj.open(map_obj, marker);
+
+            let info_text = document.getElementById('info-context');
+            let info = document.getElementById('info');
+            let name = document.getElementById('name');
+            let location = document.getElementById('location');
+            let status = document.getElementById('status');
+            let battery = document.getElementById('battery');
+            let km = document.getElementById('km');
+
+            search_map.style.width = "68%";
+            search_map.style.transition = "width 2s";
+
+            info_text.style.width = "25%";
+            info_text.style.transition = "width 2s";
+
+            info.style.transition = "width 2s";
+            info.style.display = "grid";
+
+            name.innerText = scootersHere[j].name;
+            location.innerText = scootersHere[j].location;
+            status.innerText = scootersHere[j].status;
+            battery.innerText = scootersHere[j].battery;
+            km.innerText = scootersHere[j].km;
+
+        });
+
+    }
+
 }
 
-const requests = document.getElementById('rental-requests');
-const user_spec = document.getElementById('user-specifications');
+function findTheScootersInStation(stationLocation) {
+    let scootersInStation = [];
+    for (let j = 0; j < products.length; j++) {
+        if (products[j].location === stationLocation) {
+            scootersInStation.push(products[j]);
+        }
+    }
 
-requests.onclick = function(ev) {
+    return scootersInStation;
+}
+
+
+const search_btn = document.getElementById('search-button');
+const search_box = document.getElementById('search-box');
+
+search_btn.onclick = function(ev) {
     ev.preventDefault();
 
-    if (user_spec.style.display === "none") {
-        user_spec.style.display = "block";
-    } else {
-        user_spec.style.display = "none";
+    for (let i = 0; i < stations.length; i++) {
+
+        if (search_box.value === stations[i][0]) {
+
+            // console.log(stations[i][1])
+            // console.log(search_box)
+
+            generate_map_for_station(search_map, stations[i][1], stations[i][2])
+        }
+
     }
+
 }
+
+const returnBtn = document.getElementById('back-to-all-map');
+
+returnBtn.onclick = function(ev) {
+    ev.preventDefault();
+
+    generate_map();
+}
+
