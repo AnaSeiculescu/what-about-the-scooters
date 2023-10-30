@@ -4,17 +4,22 @@
     font-family: Andika;
 }
 
+body {
+    background-color: #1A2930;
+}
+
 div {
     box-sizing: border-box;
 }
 
 #header {
     height: 40px;
-    border-bottom: 4px solid black;
-    box-shadow: 0 8px 3px #a1a3a3;
+    border-bottom: 2px solid white;
+    box-shadow: 0 3px 5px white;
 }
 
 #header > p {
+    color:white;
     margin-left: 2%;
     font-size: 25px;
     font-weight: 600;
@@ -38,35 +43,36 @@ div {
 
 #location-usage > p, ul {
     margin: 25px;
+    color: white;
 }
 
 #map {
-    border: 2px solid black;
     margin-left: 2%;
-    width: 95%;
+    width: 93%;
+    box-shadow: 10px 10px 1px #a1a3a3;
 }
 
 #info-context {
-    display: none;
     margin-right: 2%;
-    width: 29%;
+    border-left: 2px solid white;
 }
 
 #info {
-    display: grid;
+    display: none;
     gap: 25px;
-    margin-right: 2%;
+    margin-right: 4%;
+    margin-left: 4%;
     width: 100%;
-    align-items:center;
-    justify-content: center;
 }
 
 #info > p {
     font-size: 22px;
+    color: white;
 }
 
 #info > a {
+    color: white;
     text-decoration: none;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid white;
 }

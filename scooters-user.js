@@ -36,13 +36,17 @@ function generate_map(map_el = search_map, lat_val = 45.760696, lng_val = 21.226
             info_obj.open(map_obj, marker);
 
             search_map.style.width = "65%";
-            search_map.style.transition = "width 1s";
+            search_map.style.transition = "width 2s";
 
             let info_text = document.getElementById('info-context');
+            let info = document.getElementById('info');
+
             info_text.style.width = "29%";
-            info_text.style.transition = "width 2s";
-            info_text.style.display = "block";
             info_text.style.transition = "display 2s";
+
+            info.style.transition = "width 2s";
+            info.style.display = "grid";
+            info.style.transition = "display 2s";
             
         });
 
