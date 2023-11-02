@@ -13,8 +13,8 @@ const products = [
         lat: 45.748035,
         lng: 21.238690,
         location: 'Aleea Studentilor Station',
-        status: 'public', 
-        battery: "43% - charging",
+        status: 'Status: public', 
+        battery: "Battery: 43% - charging",
         km: 'km left at max speed: 7',
     },
 
@@ -24,8 +24,8 @@ const products = [
         lat: 45.754090,
         lng: 21.225549,
         location: 'Piata Victoriei Station',
-        status: 'private', 
-        battery: "80%",
+        status: 'Status: private', 
+        battery: "Battery: 80%",
         km: 'km left at max speed: 12',
     },
 
@@ -35,8 +35,8 @@ const products = [
         lat: 45.761888,
         lng: 21.226370,
         location: 'Calea Alexandru Ioan Cuza 1, Botanic Park',
-        status: 'public', 
-        battery: "55%",
+        status: 'Status: public', 
+        battery: "Battery: 55%",
         km: 'km left at max speed: 8.5',
     },
 
@@ -46,8 +46,8 @@ const products = [
         lat: 45.774961, 
         lng: 21.238971,
         location: 'Petru si Pavel Station',
-        status: 'private', 
-        battery: "25% - charging",
+        status: 'Status: private', 
+        battery: "Battery: 25% - charging",
         km: 'km left at max speed: 4',
     },
 ];
